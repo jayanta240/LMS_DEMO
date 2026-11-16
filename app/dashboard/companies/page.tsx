@@ -142,7 +142,7 @@ export default function CompaniesPage() {
     setBulkBusy(true); setBulkError(''); setBulkResult(null);
     try {
       const body = new FormData(); body.append('file', bulkFile);
-      const token = localStorage.getItem('token'); const base = process.env.NEXT_PUBLIC_API_URL || window.location.origin;
+      const token = localStorage.getItem('token'); const base = window.location.origin;
       const response = await fetch(base + '/api/bulk-registration/companies', { method: 'POST', headers: token ? { Authorization: 'Bearer ' + token } : {}, body });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data?.detail || 'Company bulk upload failed.');
@@ -152,7 +152,7 @@ export default function CompaniesPage() {
   }
   async function downloadCompanyTemplate() {
     try {
-      const token = localStorage.getItem('token'); const base = process.env.NEXT_PUBLIC_API_URL || window.location.origin;
+      const token = localStorage.getItem('token'); const base = window.location.origin;
       const response = await fetch(base + '/api/bulk-registration/template?role=company', { headers: token ? { Authorization: 'Bearer ' + token } : {} });
       if (!response.ok) throw new Error('Could not download template.');
       const url = URL.createObjectURL(await response.blob()); const a = document.createElement('a'); a.href = url; a.download = 'company_bulk_upload_template.xlsx'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
