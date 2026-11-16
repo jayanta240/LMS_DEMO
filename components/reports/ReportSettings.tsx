@@ -7,9 +7,7 @@ import { getCompanies, getDepartments } from "@/lib/course-api";
 type Company = { id: number; company_name: string };
 type Department = { id: number; department_name: string };
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL ||
-  (typeof window !== "undefined" ? window.location.origin : "http://localhost:8000");
+const API_BASE = typeof window !== "undefined" ? window.location.origin : "";
 
 export default function ReportSettings({ role }: { role: string }) {
   const [userCompanyId, setUserCompanyId] = useState(0);

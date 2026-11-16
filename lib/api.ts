@@ -1,8 +1,4 @@
-const BASE =
-  process.env.NEXT_PUBLIC_API_URL ||
-  (typeof window !== "undefined"
-    ? window.location.origin
-    : "http://localhost:8000");
+const BASE = typeof window !== "undefined" ? window.location.origin : "";
 
 // ============================================================
 // AUTH HEADER

@@ -22,7 +22,7 @@ export default function IssuesPage() {
     formData.append("solution", solution);
 
     const res = await fetch(
-      "http://127.0.0.1:8000/api/upload-issue",
+      "/api/upload-issue",
       {
         method: "POST",
         body: formData,

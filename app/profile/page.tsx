@@ -4,9 +4,7 @@ import { useEffect, useState } from "react";
 import EmployeeLayout from "@/components/layout/EmployeeLayout";
 import { Camera, UserRound, Loader2, CheckCircle2 } from "lucide-react";
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL ||
-  (typeof window !== "undefined" ? window.location.origin : "http://localhost:8000");
+const API_BASE = typeof window !== "undefined" ? window.location.origin : "";
 
 export default function ProfilePage() {
   const [name, setName] = useState("");
