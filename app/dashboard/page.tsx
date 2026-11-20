@@ -169,7 +169,7 @@ export default function DashboardPage() {
         ? "Department Head Dashboard"
         : role === "employee"
           ? "Learning Dashboard"
-          : "Super Admin Dashboard";
+          : "Company Dashboard";
 
 
   /* ==========================================================
