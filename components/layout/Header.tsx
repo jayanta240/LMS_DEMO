@@ -539,9 +539,9 @@ export default function Header({
             </button>
 
             <p className="text-[12px] text-slate-500">
-              {role}
+              {role !== "Super Admin" ? role : ""}
               {companyName
-                ? ` • ${companyName}`
+                ? `${role !== "Super Admin" ? " • " : ""}${companyName}`
                 : ""}
             </p>
 
